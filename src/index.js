@@ -23,10 +23,10 @@ const cart = (state = defaultObject, action) => {
     if (action.type === 'UPDATE_PIZZA') {
         const newInfo = action.payload;
         return {...state, pizzas: newInfo.pizzas, order_total: newInfo.order_total}
-    } else if (action.type === 'ADD_CUSTOMER') {
+    } else if (action.type === 'ADD_FEEL') {
         // CustomerPage logic here
         const newInfo = action.payload;
-        return {...state, customer: newInfo.customer, type: newInfo.pickOrDeliv}
+        return {...state, customer: newInfo.customer, type: newInfo.howIFeel}
 
     } else if (action.type === 'EMPTY_CART') {
         return defaultObject;
