@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import Header from '../Header/Header.js';
 
 const FormObject = {
-    feeling: "",
-};//end customerFormObject
+    feedback: {
+    feeling: '',
+    }
+};//end FormObject
 
 class FeelingPage extends Component {
     constructor() {

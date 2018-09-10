@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../Header/Header.js';
 
-const customerFormObject = {
-    understanding: "",
+const FormObject = {
+    feedback: {
+    understanding: '',
+    }
 };//end customerFormObject
 
-class FeelingPage extends Component {
+class UnderstandPage extends Component {
     constructor() {
         super();
 
-        this.state = customerFormObject;
+        this.state = FormObject;
     }
 
     handleOptionChange = (event) => {
@@ -91,4 +93,4 @@ class FeelingPage extends Component {
 const mapReduxStateToProps = (reduxState) => ({
     reduxState
 });
-export default connect(mapReduxStateToProps)(FeelingPage);
+export default connect(mapReduxStateToProps)(UnderstandPage);

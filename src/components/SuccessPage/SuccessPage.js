@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../Header/Header.js';
 
-class FeelingPage extends Component {
+class SuccessPage extends Component {
     render() {
         return (
             <div>
@@ -17,4 +17,4 @@ class FeelingPage extends Component {
 const mapReduxStateToProps = (reduxState) => ({
     reduxState
 });
-export default connect(mapReduxStateToProps)(FeelingPage);
+export default connect(mapReduxStateToProps)(SuccessPage);

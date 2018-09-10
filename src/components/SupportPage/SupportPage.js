@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import Header from '../Header/Header.js';
 
 const FormObject = {
-    support: "",
-};//end customerFormObject
+    feedback:{
+    support: '',
+    }
+};//end FormObject
 
-class FeelingPage extends Component {
+class SupportPage extends Component {
     constructor() {
         super();
 
@@ -91,4 +93,4 @@ class FeelingPage extends Component {
 const mapReduxStateToProps = (reduxState) => ({
     reduxState
 });
-export default connect(mapReduxStateToProps)(FeelingPage);
+export default connect(mapReduxStateToProps)(SupportPage);
