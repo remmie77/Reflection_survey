@@ -7,28 +7,33 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
+//(initial state)
 const defaultObject = {
-    customer: {
-        name: '',
-        street_address: '',
-        city: '',
-        zip: 0
+    feedback: {
+        feeling: '',
+        understanding: '',
+        support: '',
+        comments: ''
     },
-    pizzas: [],
-    order_total: 0,
-    type: ''
 }
 
 const cart = (state = defaultObject, action) => {
-    if (action.type === 'UPDATE_PIZZA') {
+    if (action.type === 'ADD_FEEL') {
+        // FeelingPage logic here
         const newInfo = action.payload;
-        return {...state, pizzas: newInfo.pizzas, order_total: newInfo.order_total}
-    } else if (action.type === 'ADD_FEEL') {
-        // CustomerPage logic here
+        return {...state, feedback: newInfo.feedback, type: newInfo.feeling}
+    }else if (action.type === 'ADD_UNDERSTAND') {
+        // UnderstandPage logic here
         const newInfo = action.payload;
-        return {...state, customer: newInfo.customer, type: newInfo.howIFeel}
-
-    } else if (action.type === 'EMPTY_CART') {
+        return {...state, feedback: newInfo.feedback, type: newInfo.howIUnderstand}
+    }else if (action.type === 'ADD_SUPPORT') {
+        const newInfo = action.payload;
+        return {...state, feedback: newInfo.feedback, type: newInfo.support}
+    }
+    
+    
+    
+    else if (action.type === 'EMPTY_CART') {
         return defaultObject;
     }
     return state;
