@@ -41,7 +41,7 @@ class UnderstandPage extends Component {
         const action = { type: 'ADD_UNDERSTAND', payload: this.state }
         this.props.dispatch(action);
 
-        // this.props.history.push('support');
+        this.props.history.push('support');
 
         // this.clearFields();
     }
@@ -80,7 +80,7 @@ class UnderstandPage extends Component {
                             </div>
                         </div>
                         <div>
-                            <button type="submit">Next</button>
+                            <button type="submit" onClick={this.handleSubmit}>Next</button>
                         </div>
                     </div>
                 </form>

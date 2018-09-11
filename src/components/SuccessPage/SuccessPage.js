@@ -3,11 +3,18 @@ import { connect } from 'react-redux';
 import Header from '../Header/Header.js';
 
 class SuccessPage extends Component {
+
+    handleReroute = (event) => {
+        console.log('yaaas maaaate');
+        this.props.history.push('/');
+    }
+    
     render() {
         return (
             <div>
                 <Header />
-                <p>YES1</p>
+                <h1>THANK YOU!</h1><lb /><lb /><lb /><lb /><lb /><lb />
+                <button onClick={this.handleReroute}>LEAVE NEW FEEDBACK</button>
             </div>
 
         );

@@ -41,7 +41,7 @@ class SupportPage extends Component {
         const action = { type: 'ADD_SUPPORT', payload: this.state }
         this.props.dispatch(action);
 
-        // this.props.history.push('comment');
+        this.props.history.push('comment');
 
         // this.clearFields();
     }
@@ -80,7 +80,7 @@ class SupportPage extends Component {
                             </div>
                         </div>
                         <div>
-                            <button type="submit">Next</button>
+                            <button type="submit" onClick={this.handleSubmit}>Next</button>
                         </div>
                     </div>
                 </form>

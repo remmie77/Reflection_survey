@@ -40,7 +40,7 @@ class FeelingPage extends Component {
         const action = { type: 'ADD_FEEL', payload: this.state }
         this.props.dispatch(action);
 
-        // this.props.history.push('understand');
+        this.props.history.push('understand');
 
         // this.clearFields();
     }
@@ -79,7 +79,7 @@ class FeelingPage extends Component {
                             </div>
                         </div>
                         <div>
-                            <button type="submit">Next</button>
+                            <button type="submit" onClick={this.handleSubmit}>Next</button>
                         </div>
                     </div>
                 </form>
