@@ -4,9 +4,7 @@ import axios from 'axios';
 import Header from '../Header/Header.js';
 
 const FormObject = {
-    feedback: {
         comment: '',
-    }
 };//end FormObject
 
 class CommentPage extends Component {
@@ -21,17 +19,14 @@ class CommentPage extends Component {
     handleChange = (event) => {
         console.log(event.target.value);
         this.setState({
-            customer: {
-                ...this.state.comment,
-                [event.target.name]: event.target.value,
-            }
+                comment: event.target.value,
         });
     }
 
     handleSubmit = (event) => {
         console.log(this.state);
         event.preventDefault();
-        const action = { type: 'ADD_UNDERSTAND', payload: this.state }
+        const action = { type: 'ADD_COMMENT', payload: this.state.comment }
         this.props.dispatch(action);
         this.clearFields();
     }

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../Header/Header.js';
+import logger from 'redux-logger';
+ 
 
 const FormObject = {
-    feedback: {
     feeling: '',
-    }
 };//end FormObject
 
 class FeelingPage extends Component {
@@ -19,25 +19,20 @@ class FeelingPage extends Component {
         console.log('in handleOptionChange');
         this.setState({
             ...this.state,
-            feeling: event.target.value
+            feeling: parseInt(event.target.value)
         });
-        console.log(this.state);
+
+        console.log('previous state', this.state);
+        
     }
 
-    // handleChange = (event) => {
-    //     console.log(event.target.value);
-    //     this.setState({
-    //         customer: {
-    //             ...this.state.customer,
-    //             [event.target.name]: event.target.value,
-    //         }
-    //     });
-    // }
+    
 
     handleSubmit = (event) => {
         console.log(this.state);
         event.preventDefault();
-        const action = { type: 'ADD_FEEL', payload: this.state }
+        const action = { type: 'ADD_FEEL', payload: parseInt(this.state.feeling) }
+        console.log('U!', action);
         this.props.dispatch(action);
 
         this.props.history.push('understand');
@@ -66,15 +61,15 @@ class FeelingPage extends Component {
                         <div>
                             <div className="formSection">
                                 <label htmlFor="#feelOneBtn">I'm feeling really bad.<br /> 1</label>
-                                <input onChange={this.handleOptionChange} id="feelOneBtn" type="radio" value="1" name="feeling" checked={this.state.feeling === '1'} required /><br />
+                                <input onChange={this.handleOptionChange} id="feelOneBtn" type="radio" value="1" name="feeling" checked={this.state.feeling === 1} required /><br />
                                 <label htmlFor="#feelTwoBtn">2</label>
-                                <input onChange={this.handleOptionChange} id="feelTwoBtn" type="radio" value="2" name="feeling" checked={this.state.feeling === '2'} required /><br />
+                                <input onChange={this.handleOptionChange} id="feelTwoBtn" type="radio" value="2" name="feeling" checked={this.state.feeling === 2} required /><br />
                                 <label htmlFor="#feelThreeBtn">3</label>
-                                <input onChange={this.handleOptionChange} id="feelThreeBtn" type="radio" value="3" name="feeling" checked={this.state.feeling === '3'} required /><br />
+                                <input onChange={this.handleOptionChange} id="feelThreeBtn" type="radio" value="3" name="feeling" checked={this.state.feeling === 3} required /><br />
                                 <label htmlFor="#feelFourBtn">4</label>
-                                <input onChange={this.handleOptionChange} id="feelFourBtn" type="radio" value="4" name="feeling" checked={this.state.feeling === '4'} required /><br />
+                                <input onChange={this.handleOptionChange} id="feelFourBtn" type="radio" value="4" name="feeling" checked={this.state.feeling === 4} required /><br />
                                 <label htmlFor="#feelFiveBtn">5</label>
-                                <input onChange={this.handleOptionChange} id="feelFiveBtn" type="radio" value="5" name="feeling" checked={this.state.feeling === '5'} required /><br />
+                                <input onChange={this.handleOptionChange} id="feelFiveBtn" type="radio" value="5" name="feeling" checked={this.state.feeling === 5} required /><br />
                                 <span>I feel so amazing. </span>
                             </div>
                         </div>

@@ -9,31 +9,27 @@ import logger from 'redux-logger';
 
 //(initial state)
 const defaultObject = {
-    feedback: {
         feeling: '',
         understanding: '',
         support: '',
-        comments: ''
-    },
+        comments: '',
 }
 
 const cart = (state = defaultObject, action) => {
+    const newInfo = action.payload;
+    console.log('new info', newInfo);
     if (action.type === 'ADD_FEEL') {
         // FeelingPage logic here
-        const newInfo = action.payload;
-        return {...state, feedback: newInfo.feedback, type: newInfo.feeling}
+        return {...state, feeling: newInfo}
     }else if (action.type === 'ADD_UNDERSTAND') {
         // UnderstandPage logic here
-        const newInfo = action.payload;
-        return {...state, feedback: newInfo.feedback, type: newInfo.howIUnderstand}
+        return {...state, understanding: newInfo}
     }else if (action.type === 'ADD_SUPPORT') {
-        const newInfo = action.payload;
-        return {...state, feedback: newInfo.feedback, type: newInfo.support}
+        return {...state, support: newInfo}
+    }else if (action.type === 'ADD_COMMENT') {
+        return {...state, comments: newInfo}
     }
-    
-    
-    
-    else if (action.type === 'EMPTY_CART') {
+        else if (action.type === 'EMPTY_CART') {
         return defaultObject;
     }
     return state;
