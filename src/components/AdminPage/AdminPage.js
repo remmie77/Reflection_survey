@@ -14,7 +14,6 @@ class AdminPage extends Component {
 
     getOrders() {
         console.log('in getOrders');
-
         Axios({
             method: 'GET',
             url: '/feedback'
@@ -29,6 +28,19 @@ class AdminPage extends Component {
         })
 
         console.log(this.state.orders);
+    }
+
+    deleteEntry = (event) => {
+        console.log('in deleteEntry route');
+        Axios({
+            method: 'DELETE',
+            url: `/feedback/${event.target.value}`,
+        }).then((response) => {
+            this.getOrders();
+        }).catch((error) => {
+            console.log('error: ', error);
+            alert('there was an error deleting the entry');
+        })
     }
 
     componentDidMount() {
@@ -58,6 +70,7 @@ class AdminPage extends Component {
                                     <td>{order.comments}</td>
                                     <td>{order.flagged}</td>
                                     <td>{order.date}</td>
+                                    <td><button value={order.id} onClick={this.deleteEntry}>Delete</button></td>
                                 </tr>
                             )
                         })}
